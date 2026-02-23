@@ -240,7 +240,7 @@ export default function OrderDetailPage() {
   if (!order) return null;
 
   return (
-    <div className="font-geist pb-20">
+    <div className="font-geist pb-20 p-6">
       <button
         onClick={() => router.back()}
         className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800 transition-colors mb-10 cursor-pointer"

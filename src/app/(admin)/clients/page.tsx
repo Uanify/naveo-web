@@ -50,7 +50,7 @@ export default async function ClientsPage({ searchParams }: Props) {
   }
 
   return (
-    <div>
+    <div className="p-4">
       <div className="flex items-center justify-between">
         <h1 className="text-lg font-semibold text-gray-900 sm:text-xl dark:text-gray-50">
           Clientes

@@ -48,7 +48,7 @@ export default async function AdminLayout({
         <Sidebar userData={userData} />
 
         <div className="relative">
-          <div className="p-4 sm:px-6 sm:pb-10 sm:pt-10 lg:px-10 lg:pt-7">
+          <div className="">
             <main className="lg:pl-72">{children}</main>
           </div>
         </div>

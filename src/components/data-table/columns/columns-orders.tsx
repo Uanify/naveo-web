@@ -27,20 +27,20 @@ export type Order = {
 const columnHelper = createColumnHelper<Order>();
 
 const statusConfig = {
-  pending: {
-    label: "Pendiente",
+  assigned_to_batch: {
+    label: "Asignado a despachador",
     variant: "neutral" as const,
   },
-  collecting: {
-    label: "En recolección",
+  queued: {
+    label: "En cola",
     variant: "warning" as const,
   },
   in_transit: {
     label: "En tránsito",
     variant: "default" as const,
   },
-  completed: {
-    label: "Completado",
+  delivered: {
+    label: "Entregado",
     variant: "success" as const,
   },
   cancelled: {

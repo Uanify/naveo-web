@@ -137,7 +137,7 @@ export default async function DriversPage({ searchParams }: Props) {
   });
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-4">
       <div className="flex items-center justify-between">
         <h1 className="text-lg font-semibold text-gray-900 sm:text-xl dark:text-gray-50">
           Conductores
