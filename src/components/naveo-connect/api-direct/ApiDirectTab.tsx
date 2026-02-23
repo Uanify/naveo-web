@@ -1,13 +1,11 @@
 "use client";
 
-import * as React from "react";
 import {
   AlarmClock,
   Blocks,
   ClockAlert,
   RefreshCcw,
   UserLock,
-  ArrowUpRight,
 } from "lucide-react";
 import {
   Popover,
@@ -16,7 +14,6 @@ import {
 } from "@/components/ui/Popover";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import { QUEUE_ROWS_MOCK } from "@/mocks/incoming-orders";
 import { QueueTableWithRowModal } from "./QueueTableWithRowModal";
@@ -28,53 +25,6 @@ type ApiDirectionTabDraft = {
   max_orders_per_batch: number;
   driver_block_duration_minutes: number;
 };
-
-type OrderStatus =
-  | "new"
-  | "queued"
-  | "assigned_to_batch"
-  | "sent_to_driver"
-  | "accepted"
-  | "rejected_by_driver"
-  | "collecting"
-  | "collected"
-  | "in_transit"
-  | "delivered"
-  | "undelivered";
-
-function getStatusUI(status: OrderStatus, isReadyForBatch?: boolean) {
-  // If you want the "in-between" state for debugging WITHOUT adding a DB status:
-  if (status === "queued" && isReadyForBatch) {
-    return { label: "Listo para lote", dot: "bg-amber-500" };
-  }
-
-  switch (status) {
-    case "new":
-      return { label: "Nuevo", dot: "bg-slate-400" };
-    case "queued":
-      return { label: "En cola", dot: "bg-blue-500" };
-    case "assigned_to_batch":
-      return { label: "En lote", dot: "bg-indigo-500" };
-    case "sent_to_driver":
-      return { label: "Enviado a chofer", dot: "bg-violet-500" };
-    case "accepted":
-      return { label: "Aceptado", dot: "bg-emerald-500" };
-    case "rejected_by_driver":
-      return { label: "Rechazado", dot: "bg-rose-500" };
-    case "collecting":
-      return { label: "Recolectando", dot: "bg-cyan-500" };
-    case "collected":
-      return { label: "Recolectado", dot: "bg-teal-500" };
-    case "in_transit":
-      return { label: "En tránsito", dot: "bg-yellow-500" };
-    case "delivered":
-      return { label: "Entregado", dot: "bg-green-600" };
-    case "undelivered":
-      return { label: "No entregado", dot: "bg-orange-600" };
-    default:
-      return { label: status, dot: "bg-gray-400" };
-  }
-}
 
 function clampInt(value: number, min: number, max: number) {
   return Math.min(Math.max(Math.trunc(value), min), max);
